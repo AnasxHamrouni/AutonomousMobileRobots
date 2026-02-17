@@ -1,0 +1,20 @@
+<launch>
+    <let name="urdf_path"
+        value="$(find-pkg-share my_robot_description)/urdf/my_robot.urdf.xacro"/>
+
+    <node pkg="robot_state_publisher" exec="robot_state_publisher">
+        <param name="robot_description" 
+                value="$(command 'xacro $(var urdf_path)')"/>
+    </node>
+
+    <!-- Launch Gazebo with proper factory plugin -->
+    <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py">
+        <arg name="verbose" value="false"/>
+        <arg name="pause" value="false"/>
+    </include>
+    
+    <!-- Spawn the robot entity with delay to ensure Gazebo is ready -->
+    <node pkg="gazebo_ros" exec="spawn_entity.py" 
+          args="-topic robot_description -entity my_robot"
+          output="screen"/>
+</launch>

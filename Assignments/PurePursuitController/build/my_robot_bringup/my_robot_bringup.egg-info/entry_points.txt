@@ -1,0 +1,6 @@
+[console_scripts]
+keyboard_control = my_robot_bringup.keyboard_control:main
+odom_listener = my_robot_bringup.odom_listener:main
+plot_trajectory = my_robot_bringup.plot_trajectory:main
+waypoint_controller = my_robot_bringup.waypoint_controller:main
+
