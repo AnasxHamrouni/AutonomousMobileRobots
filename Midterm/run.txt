@@ -1,0 +1,38 @@
+cd exam
+xhost +local:docker
+docker compose build
+docker compose up -d
+
+docker exec -it amr_exam /entrypoint.sh bash
+
+cd /workspace/AMR_ws
+colcon build --packages-select exam
+source install/setup.bash
+
+ros2 launch exam ackermann_bringup.launch.py
+
+
+
+obstacle avoidance
+source install/setup.bash
+ros2 run exam obstacle_avoidance
+
+p controller
+ros2 run exam ackermann_p_controller
+
+
+pure pursuit (if doesn't work, try to kill other controller nodes or shut down container and restart it )
+ros2 run exam ackermann_pure_pursuit
+
+stanley (doesn't work)
+ros2 run exam ackermann_stanley
+
+
+(reseting)
+docker compose down
+docker volume rm -f $(docker volume ls -q | grep amr_exam)
+
+docker compose build
+docker compose up -d
+
+docker exec -it amr_exam /entrypoint.sh bash

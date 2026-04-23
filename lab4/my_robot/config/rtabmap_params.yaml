@@ -1,0 +1,8 @@
+# RTAB-Map Parameters for stereo input
+frame_id: "base_link"
+subscribe_stereo: true     # Enable stereo mode
+subscribe_rgbd: false      # Disable RGB-D subscription
+rgb_topic: "/camera_left_sensor/image_raw"
+stereo_rgb_topic: "/camera_right_sensor/image_raw"
+camera_info_topic: "/camera_left_sensor/camera_info"
+wait_for_transform_duration: 0.2

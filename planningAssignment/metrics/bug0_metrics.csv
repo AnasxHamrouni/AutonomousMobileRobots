@@ -1,0 +1,4 @@
+timestamp,scenario,planner,goal_index,success,duration_s,path_length_m,start_to_goal_dist_m,wall_follow_entries,recovery_events,final_state,notes
+2026-04-20T21:06:34,convex_01,bug0,1,1,22.200,3.653,3.762,0,0,GOAL_REACHED,
+2026-04-20T21:31:15,convex_02,bug0,1,1,19.800,3.258,3.417,0,0,GOAL_REACHED,
+2026-04-20T21:33:11,convex_03,bug0,1,1,7.300,0.681,0.917,0,0,GOAL_REACHED,

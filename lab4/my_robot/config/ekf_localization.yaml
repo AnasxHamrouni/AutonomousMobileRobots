@@ -1,0 +1,15 @@
+ekf_localization_node:
+  ros__parameters:
+    use_sim_time: True
+    frequency: 30
+    two_d_mode: true  # Set true for robots operating in a 2D plane (discards roll, pitch, and Z-axis values)
+
+    # Odometry input
+    odom0: /odom
+    odom0_config: [true, true, false,  false, false, true,  false, false, false, false, false, false]
+
+
+    # IMU input
+    imu0: /imu/data
+    imu0_config: [false, false, false,  false, false, false,  true, true, false]
+

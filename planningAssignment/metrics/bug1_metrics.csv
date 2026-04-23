@@ -1,0 +1,5 @@
+timestamp,scenario,planner,goal_index,success,duration_s,path_length_m,start_to_goal_dist_m,wall_follow_entries,circumnavigations,recovery_events,final_state,notes
+2026-04-20T21:25:13,convex_01,bug1,1,0,22.800,3.126,3.925,0,0,0,INTERRUPTED,New goal received before previous goal completion
+2026-04-20T21:25:25,convex_01,bug1,2,1,11.200,1.311,1.497,0,0,0,GOAL_REACHED,
+2026-04-20T21:45:01,convex_02,bug1,1,0,87.400,8.951,4.050,3,2,6,INTERRUPTED,New goal received before previous goal completion
+2026-04-20T21:45:13,convex_02,bug1,2,1,11.200,1.266,1.470,0,0,0,GOAL_REACHED,

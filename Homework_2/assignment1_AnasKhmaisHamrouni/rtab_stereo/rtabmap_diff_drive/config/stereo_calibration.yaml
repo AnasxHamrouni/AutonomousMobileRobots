@@ -1,0 +1,67 @@
+image_width: 640
+image_height: 480
+camera_name: stereo_camera
+
+# Left Camera Parameters
+left_camera_matrix:
+  rows: 3
+  cols: 3
+  data: [500.0, 0.0, 320.0, 0.0, 500.0, 240.0, 0.0, 0.0, 1.0]
+left_distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.0, 0.0, 0.0, 0.0, 0.0]
+
+# Right Camera Parameters
+right_camera_matrix:
+  rows: 3
+  cols: 3
+  data: [500.0, 0.0, 320.0, 0.0, 500.0, 240.0, 0.0, 0.0, 1.0]
+right_distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.0, 0.0, 0.0, 0.0, 0.0]
+
+# Rotation matrix (identity as the cameras are parallel)
+rotation_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+
+# Translation vector (baseline along Y-axis, 12cm)
+translation_vector:
+  rows: 3
+  cols: 1
+  data: [0.0, -0.12, 0.0]
+
+# Essential matrix
+essential_matrix:
+  rows: 3
+  cols: 3
+  data: [0.0, 0.0, 0.0, 0.12, 0.0, 0.0, 0.0, 0.0, 0.0]  
+
+# Fundamental matrix
+fundamental_matrix:
+  rows: 3
+  cols: 3
+  data: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+  
+# Rectification transformations
+left_rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+right_rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+
+# Projection matrices
+left_projection_matrix:
+  rows: 3
+  cols: 4
+  data: [500.0, 0.0, 320.0, 0.0, 0.0, 500.0, 240.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+right_projection_matrix:
+  rows: 3
+  cols: 4
+  data: [500.0, 0.0, 320.0, -60.0, 0.0, 500.0, 240.0, 0.0, 0.0, 0.0, 1.0, 0.0] 

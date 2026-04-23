@@ -1,0 +1,51 @@
+<gazebo reference="imu_link">
+  <sensor name="imu_sensor" type="imu">
+    <always_on>true</always_on>
+    <update_rate>50</update_rate> <!-- 50 Hz -->
+    <visualize>true</visualize>
+    <pose>0 0 0 0 0 0</pose>
+    
+    <imu>
+      <!-- Add noise parameters -->
+      <angular_velocity>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.5</stddev> <!-- Adjust noise level -->
+        </noise>
+      </angular_velocity>
+
+      <linear_acceleration>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.5</stddev> <!-- Adjust noise level -->
+        </noise>
+      </linear_acceleration>
+
+      <orientation>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.5</stddev> <!-- Adjust noise level -->
+        </noise>
+      </orientation>
+    </imu>
+
+    <plugin name="gazebo_ros_imu" filename="libgazebo_ros_imu_sensor.so">
+      <ros>
+        <!-- Remap the default output topic to /imu/data -->
+        <remapping>~/out:=imu/data</remapping>
+        <qos>
+          <reliability>best_effort</reliability>
+          <durability>transient_local</durability>
+        </qos>
+      </ros>
+      <frame_name>imu_link</frame_name>
+      <enable_orientation>true</enable_orientation>
+      <enable_angular_velocity>true</enable_angular_velocity>
+      <enable_linear_acceleration>true</enable_linear_acceleration>
+    </plugin>
+
+  </sensor>
+</gazebo>

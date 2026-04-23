@@ -1,0 +1,44 @@
+amcl:
+  ros__parameters:
+    use_sim_time: True
+    # min_particles: 500
+    # max_particles: 2000
+    transform_tolerance: 0.1
+
+    # Frame IDs
+    base_frame_id: "base_link"
+    odom_frame_id: "odom"
+    map_frame_id: "map"
+
+    # Scan Matching Parameters:
+    # Specifies the sensor model used for laser scan matching.
+    # 'likelihood_field' computes the likelihood of a scan observation based on pre-computed distances to obstacles.
+    laser_model_type: "likelihood_field"
+
+    # Particle filter settings:
+    # Minimum number of particles to maintain the belief representation.
+    min_particles: 100
+    # Maximum number of particles allowed (adaptive sampling can adjust between min and max).
+    max_particles: 5000
+
+    # Update thresholds:
+    # 'update_min_a' defines the minimum angular displacement (in radians) required to trigger an update.
+    update_min_a: 0.2
+    # 'update_min_d' defines the minimum linear displacement (in meters) required to trigger an update.
+    update_min_d: 0.25
+
+    # Resample interval:
+    # Number of iterations between resampling steps. A lower number means resampling happens more frequently.
+    resample_interval: 2
+
+    # Motion model noise parameters (alpha values):
+    # These parameters model the noise in the robot's motion. They are used to add uncertainty
+    # to the predicted state during the 'prediction' step of the filter.
+    alpha1: 0.2  # noise related to rotation during rotation
+    alpha2: 0.2  # noise related to rotation during translation
+    alpha3: 0.2  # noise related to translation during translation
+    alpha4: 0.2  # noise related to translation during rotation
+    alpha5: 0.2  # additional noise parameter (often used for modeling unexpected motion)
+
+    # Laser scan topic
+    scan_topic: "/scan"

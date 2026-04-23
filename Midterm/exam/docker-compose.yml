@@ -1,0 +1,23 @@
+services:
+  amr_exam:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: amr_exam
+
+    # GUI (X11 forwarding for Gazebo)
+    environment:
+      - DISPLAY=${DISPLAY}
+      - QT_X11_NO_MITSHM=1
+
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - .:/amr_ws/src/exam:rw   # live-mount source — changes on host are instant
+
+    # ROS2 DDS discovery works best with host networking
+    network_mode: host
+
+    stdin_open: true
+    tty: true
+
+    command: ros2 launch exam ackermann_bringup.launch.py
